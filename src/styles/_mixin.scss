@@ -5,12 +5,6 @@
   justify-content: $justifyContent;
 }
 
-// grid
-@mixin gridStyle($columns) {
-  display: grid;
-  grid-template-columns: $columns;
-}
-
 // layout 
 @mixin layoutInnerSize($whidth) {
   width: 100%;
@@ -45,7 +39,9 @@
 }
 
 .button--mixin-style {
-  @include flexStyle(center, center)
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin buttonStyle($bgColor, $borderColor: $bgColor, $width: 100%) {
