@@ -2,7 +2,11 @@
 @import './_variables'; // 변수
 @import './_mixin'; // mixin 
 
-// display 
+// display flex 
+.d__flex {
+  display: flex;
+}
+
 .d__flex--center {
   @include flexStyle(center)
 }
@@ -10,7 +14,6 @@
 .d__flex--btw {
   @include flexStyle(center, space-between)
 }
-
 
 // profile
 .profile-picture {
