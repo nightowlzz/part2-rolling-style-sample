@@ -2,7 +2,11 @@
 @import './_variables'; // 변수
 @import './_mixin'; // mixin 
 
-// display 
+// display flex 
+.d__flex {
+  display: flex;
+}
+
 .d__flex--center {
   @include flexStyle(center)
 }
@@ -10,7 +14,6 @@
 .d__flex--btw {
   @include flexStyle(center, space-between)
 }
-
 
 // profile
 .profile-picture {
@@ -72,13 +75,12 @@
       }
     }
 
-  }
-
-  &--error {
-    border-color: $G-error;
-
-    &:hover {
+    &.error {
       border-color: $G-error;
+  
+      &:hover {
+        border-color: $G-error;
+      }
     }
   }
 }
@@ -151,12 +153,12 @@
         width: 88px;
 
         &::before {
-          background-image: url(assets/icon/icon_add-24.svg)
+          background-image: url(/public/assets/icon/icon_add-24.svg)
         }
 
         &:disabled {
           &::before {
-            background-image: url(assets/icon/icon_add-24-white.svg)
+            background-image: url(/public/assets/icon/icon_add-24-white.svg)
           }
         }
 
@@ -174,12 +176,12 @@
         width: 36px;
 
         &::before {
-          background-image: url(assets/icon/icon_deleted.svg)
+          background-image: url(/public/assets/icon/icon_deleted.svg)
         }
 
         &:disabled {
           &::before {
-            background-image: url(assets/icon/icon_deleted-white.svg)
+            background-image: url(/public/assets/icon/icon_deleted-white.svg)
           }
         }
 
@@ -344,7 +346,7 @@
       top: 16px;
       width: 16px;
       height: 16px;
-      background: url(assets/icon/icon_arrow_down.svg) no-repeat center;
+      background: url(/public/assets/icon/icon_arrow_down.svg) no-repeat center;
     }
 
     &.hide::before {
