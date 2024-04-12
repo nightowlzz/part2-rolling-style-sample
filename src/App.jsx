@@ -1,7 +1,7 @@
 import "./styles/components.scss";
-const icon3 = `${import.meta.PUBLIC_URL}/assets/icon/icon_plus.svg`;
-const icon4 = `${import.meta.PUBLIC_URL}/assets/icon/icon_arrow_left.svg`;
-const icon5 = `${import.meta.PUBLIC_URL}/assets/icon/icon_arrow_right.svg`;
+const icon3 = `${process.env.PUBLIC_URL}/assets/icon/icon_plus.svg`;
+const icon4 = `${process.env.PUBLIC_URL}/assets/icon/icon_arrow_left.svg`;
+const icon5 = `${process.env.PUBLIC_URL}/assets/icon/icon_arrow_right.svg`;
 
 const titleStyle = {
   fontSize: "30px",
