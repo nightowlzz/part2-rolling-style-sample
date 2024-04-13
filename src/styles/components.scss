@@ -58,10 +58,7 @@
       outline-color: $G-color-black-500;
     }
 
-    &:active:not(:disabled) {
-      border-width: 2px;
-      line-height: 46px;
-      padding: 0 14px;
+    &:active:not(:disabled):not(.error) {
       border-color: $G-color-black-700;
     }
 
@@ -88,6 +85,16 @@
 // button
 .font-bold {
   font-weight: $G-font-weight-bold;
+}
+
+.unvisible {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  opacity: 0.1;
+  overflow: hidden !important;
 }
 
 .button {
@@ -123,11 +130,6 @@
         @include buttonAttrStyle($G-color-purple-800, $G-color-purple-800);
         outline-color: $G-color-purple-800;
       }
-
-      &:active {
-        @include buttonAttrStyle($G-color-purple-800, $G-color-purple-800);
-      }
-
       &:disabled {
         @include buttonAttrStyle($G-color-black-300, $G-color-black-300);
       }
@@ -139,71 +141,6 @@
     color: $G-black;
     @include buttonStyle($G-white, $G-color-black-300);
     @extend .button--attr-style;
-
-    &.before-icon {
-      &::before {
-        content: "";
-        display: inline-block;
-        width: 24px;
-        height: 24px;
-        background-repeat: no-repeat;
-      }
-
-      &.btn-add {
-        width: 88px;
-
-        &::before {
-          background-image: url(/public/assets/icon/icon_add-24.svg)
-        }
-
-        &:disabled {
-          &::before {
-            background-image: url(/public/assets/icon/icon_add-24-white.svg)
-          }
-        }
-
-        @media screen and (max-width:$G-window-size-mobile) {
-          width: 36px;
-          height: 32px;
-
-          span {
-            display: none;
-          }
-        }
-      }
-
-      &.btn-delete {
-        width: 36px;
-
-        &::before {
-          background-image: url(/public/assets/icon/icon_deleted.svg)
-        }
-
-        &:disabled {
-          &::before {
-            background-image: url(/public/assets/icon/icon_deleted-white.svg)
-          }
-        }
-
-        @media screen and (max-width:$G-window-size-mobile) {
-          height: 32px;
-
-          span {
-            display: none;
-          }
-        }
-      }
-
-      .unvisible {
-        position: absolute;
-        clip: rect(0, 0, 0, 0);
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        opacity: 0.1;
-        overflow: hidden
-      }
-    }
   }
 
   &--icon-plus {
@@ -236,6 +173,7 @@
     @extend .button--attr-style;
   }
 
+
   &--toggle-box {
     @include flexStyle(center);
 
@@ -263,6 +201,26 @@
         }
       }
     }
+  }
+}
+
+// 아이콘 버튼
+.before-icon {
+  &.btn-delete {
+    @include buttonIconWithBackground(40px, 40px, 100%, 100%, '/public/assets/icon/icon_deleted.svg', '/public/assets/icon/icon_deleted-white.svg');
+  }
+  &.btn-share {
+    @include buttonIconWithBackground(56px, 36px, 100%, 100%, '/public/assets/icon/icon_share-24.svg', '/public/assets/icon/icon_share-24-white.svg',36px, 32px );
+  }
+  
+  &.btn-back {
+    &::before {
+      width: 100%;
+      height: 100%;
+    }
+    @include flexStyle(center, center);
+    @include buttonIconWithBackground(40px, 40px, 100%, 100%, '/public/assets/icon/icon_arrow_left.svg', '/public/assets/icon/icon_arrow_left.svg', $MoBgSize: 24px 24px );
+    margin-right: 16px;
   }
 }
 
@@ -318,15 +276,7 @@
     }
 
     &:active:not(:disabled):not(.error) {
-      border-width: 2px;
-      line-height: 46px;
-      padding: 0 47px 0 15px;
       border-color: $G-color-black-700;
-
-      &::before {
-        top: 15px;
-        right: 15px;
-      }
     }
 
     &:disabled {
@@ -410,12 +360,22 @@
   }
 }
 
-// error
+// error message text
 .error {
   &--message {
     padding-top: 4px;
     color: $G-error ;
     font-size: 12px;
     line-height: 18px;
+  }
+}
+
+// 예시 디자인
+.text--ellipsis {
+  .one{
+    @include textLineOverflow(1)
+  }
+  .two{
+    @include textLineOverflow(2)
   }
 }

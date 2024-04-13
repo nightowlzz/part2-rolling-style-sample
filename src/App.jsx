@@ -1,7 +1,10 @@
 import "./styles/components.scss";
+const icon1 = "/assets/icon/icon_deleted.svg";
+const icon2 = "/assets/icon/icon_share-24.svg";
 const icon3 = "/assets/icon/icon_plus.svg";
 const icon4 = "/assets/icon/icon_arrow_left.svg";
-const icon5 = "/assets/icon/icon_arrow_left.svg";
+const icon5 = "/assets/icon/icon_arrow_right.svg";
+const icon6 = "/assets/icon/icon_arrow_down.svg";
 
 const titleStyle = {
   fontSize: "30px",
@@ -101,8 +104,44 @@ function App() {
           <strong>28px</strong>
         </li>
       </ul>
+      <h2 style={titleStyle}>text ellipsis</h2>
+      <h3
+        style={{
+          margin: "0 0 20px",
+          padding: "20px",
+          backgroundColor: "#eee",
+        }}
+      >
+        @include textLineOverflow(원하는 라인 수) : @include textLineOverflow(1)
+      </h3>
+      <div style={ProfileUlStyle}>
+        <div className="text--ellipsis one">
+          <p className="font-bold">한줄 (예시 디자인 입니다)</p>
+          <p className="one">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero quis
+            repellat, vel animi inventore corrupti, earum esse fuga porro
+            officia, consectetur nesciunt rem voluptas! Maiores sequi inventore
+            cupiditate doloribus quo.
+          </p>
+        </div>
+        <div className="text--ellipsis">
+          <p className="font-bold">2줄 (예시 디자인 입니다)</p>
+          <p className="two">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero quis
+            repellat, vel animi inventore corrupti, earum esse fuga porro
+            officia, consectetur nesciunt rem voluptas! Maiores sequi inventore
+            cupiditate doloribus quo.
+          </p>
+        </div>
+      </div>
       <h2 style={titleStyle}>input 가이드</h2>
-      <div>
+      <div
+        style={{
+          margin: "0 0 20px",
+          padding: "20px",
+          backgroundColor: "#eee",
+        }}
+      >
         <strong>input 6가지 다지안</strong>
         <br />
         <br />
