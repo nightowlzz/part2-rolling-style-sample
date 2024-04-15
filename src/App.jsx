@@ -1,10 +1,8 @@
 import "./styles/components.scss";
-const icon1 = "/assets/icon/icon_deleted.svg";
-const icon2 = "/assets/icon/icon_share-24.svg";
+
 const icon3 = "/assets/icon/icon_plus.svg";
 const icon4 = "/assets/icon/icon_arrow_left.svg";
 const icon5 = "/assets/icon/icon_arrow_right.svg";
-const icon6 = "/assets/icon/icon_arrow_down.svg";
 
 const titleStyle = {
   fontSize: "30px",

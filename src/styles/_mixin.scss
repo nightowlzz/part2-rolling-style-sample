@@ -2,7 +2,7 @@
 @mixin flexStyle($alignItems: center, $justifyContent: flex-start) {
   display: flex;
   align-items: $alignItems;
-  justify-content: $justifyContent;
+  justify-content: $justifyContent; 
 }
 
 // grid
