@@ -42,8 +42,8 @@ function App() {
 
       if (navigator.share) {
         await navigator.share({
-          title: 'Title of the shared URL',
-          text: 'Description of the shared URL',
+          title: '공유하기',
+          text: '복사된 url 주소 : ',
           url: shareURL,
         });
       } else {
