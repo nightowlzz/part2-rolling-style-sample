@@ -1,32 +1,61 @@
-import "./styles/components.scss";
+import './styles/components.scss';
 
-const icon3 = "/assets/icon/icon_plus.svg";
-const icon4 = "/assets/icon/icon_arrow_left.svg";
-const icon5 = "/assets/icon/icon_arrow_right.svg";
+const icon3 = '/assets/icon/icon_plus.svg';
+const icon4 = '/assets/icon/icon_arrow_left.svg';
+const icon5 = '/assets/icon/icon_arrow_right.svg';
 
 const titleStyle = {
-  fontSize: "30px",
-  fontWeight: "bold",
-  padding: "20px 0",
-  margin: "50px 0 30px",
-  borderTop: "1px solid #999",
-  borderBottom: "1px solid #999",
+  fontSize: '30px',
+  fontWeight: 'bold',
+  padding: '20px 0',
+  margin: '50px 0 30px',
+  borderTop: '1px solid #999',
+  borderBottom: '1px solid #999',
 };
 const ProfileUlStyle = {
-  display: "flex",
-  alignItems: "flex-end",
+  display: 'flex',
+  alignItems: 'flex-end',
   gap: 20,
 };
 const ProfileLiStyle = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  gap: "10px",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '10px',
 };
 
+const shareURL = window.location.href;
+
 function App() {
+  const handleURLShare = async () => {
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard
+          .writeText(shareURL)
+          .then(() => {
+            console.log('URL이 복사 되었습니다.');
+          })
+          .catch((error) => {
+            console.error('클립보드 복사 실패');
+          });
+      }
+
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Title of the shared URL',
+          text: 'Description of the shared URL',
+          url: shareURL,
+        });
+      } else {
+        console.error('Web Share API를 지원하지 않는 브라우저입니다.');
+      }
+    } catch (error) {
+      console.error('URL 공유 실패:', error);
+    }
+  };
+
   return (
-    <div style={{ width: "100%", maxWidth: 700, margin: "0 auto 100px" }}>
+    <div style={{ width: '100%', maxWidth: 700, margin: '0 auto 100px' }}>
       <h2 style={titleStyle}>프로필 이미지</h2>
       <ul style={ProfileUlStyle}>
         <li style={ProfileLiStyle}>
@@ -105,9 +134,9 @@ function App() {
       <h2 style={titleStyle}>text ellipsis</h2>
       <h3
         style={{
-          margin: "0 0 20px",
-          padding: "20px",
-          backgroundColor: "#eee",
+          margin: '0 0 20px',
+          padding: '20px',
+          backgroundColor: '#eee',
         }}
       >
         @include textLineOverflow(원하는 라인 수) : @include textLineOverflow(1)
@@ -135,9 +164,9 @@ function App() {
       <h2 style={titleStyle}>input 가이드</h2>
       <div
         style={{
-          margin: "0 0 20px",
-          padding: "20px",
-          backgroundColor: "#eee",
+          margin: '0 0 20px',
+          padding: '20px',
+          backgroundColor: '#eee',
         }}
       >
         <strong>input 6가지 다지안</strong>
@@ -166,10 +195,19 @@ function App() {
       <p className="error--message">Error Massage</p>
       <br />
       <br />
+      <h2 style={titleStyle}>url 공유하기</h2>
+      <button
+        className="button--outlined button__size-h40"
+        onClick={handleURLShare}
+      >
+        URL 공유(클립보드복사)
+      </button>
+      <br />
+      <br />
       <h2 style={titleStyle}>button 가이드</h2>
       <br />
       <br />
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 20 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
         <button className="button--fill-primary button__size-h56 font-bold">
           56px
         </button>
@@ -183,7 +221,7 @@ function App() {
       </div>
       <br />
       <br />
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 20 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
         <button className="button--outlined button__size-h56 font-bold">
           56px
         </button>
@@ -197,7 +235,7 @@ function App() {
       </div>
       <br />
       <br />
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 20 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
         <button className="button--outlined button__size-h36 before-icon btn-add">
           <span>추가</span>
         </button>
@@ -223,7 +261,7 @@ function App() {
           <img src={icon3} alt="추가하기" />
         </button>
       </div>
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 20 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
         <button className="button--icon-shadow">
           <img src={icon4} alt="이전" />
         </button>
@@ -243,7 +281,7 @@ function App() {
         <button type="button" className="button--toggle button__size-h40">
           이미지
         </button>
-      </div>{" "}
+      </div>{' '}
       <br />
       <br />
       <div className="button--toggle-box">
@@ -260,7 +298,7 @@ function App() {
       <h2 style={titleStyle}>드롭다운 가이드</h2>
       <br />
       <br />
-      <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
         <div className="dropdown">
           <button className="dropdown__toggle hide">Dropdown 메뉴</button>
           <ul className="dropdown__menu">
@@ -282,7 +320,7 @@ function App() {
       <h2 style={titleStyle}>badge 가이드</h2>
       <br />
       <br />
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 20 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
         <span className="badge__orange">지인</span>
         <span className="badge__purple">동료</span>
         <span className="badge__green">가족</span>

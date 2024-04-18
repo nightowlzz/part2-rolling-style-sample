@@ -207,17 +207,21 @@
 // 아이콘 버튼
 .before-icon {
   &.btn-delete {
+    flex-shrink: 0;
     @include buttonIconWithBackground(40px, 40px, 100%, 100%, '/public/assets/icon/icon_deleted.svg', '/public/assets/icon/icon_deleted-white.svg');
   }
   &.btn-share {
+    flex-shrink: 0;
     @include buttonIconWithBackground(56px, 36px, 100%, 100%, '/public/assets/icon/icon_share-24.svg', '/public/assets/icon/icon_share-24-white.svg',36px, 32px );
   }
   
   &.btn-back {
+    flex-shrink: 0;
     &::before {
       width: 100%;
       height: 100%;
     }
+
     @include flexStyle(center, center);
     @include buttonIconWithBackground(40px, 40px, 100%, 100%, '/public/assets/icon/icon_arrow_left.svg', '/public/assets/icon/icon_arrow_left.svg', $MoBgSize: 24px 24px );
     margin-right: 16px;
